@@ -1,1223 +1,1563 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Jeswin Morris</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Jeswin Morris · Neo-HUD Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+  <style>
+    :root {
+      --bg: #02040a;
+      --bg-panel: rgba(7, 10, 17, 0.98);
+      --bg-soft: rgba(15, 23, 42, 0.9);
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.45);
+      --accent-2: #eab308;
+      --accent-danger: #f97373;
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --border: rgba(148, 163, 184, 0.4);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.95);
+      --nav-height: 64px;
+    }
 
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      background: radial-gradient(circle at 0 0, #020617 0, #000 55%);
+      color: var(--text-main);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      overflow-x: hidden;
+    }
 
-	</head>
-	<body>
-	<div id="colorlib-page">
-		<div class="container-wrap">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<div class="text-center">
-				<div class="author-img" style="background-image: url(images/about.jpeg);"></div>
-				<h1 id="colorlib-logo"><a href="index.html">Jeswin Morris</a></h1>
-				<span class="position"><a href="#">Web Developer / SMM / Logo-Banner designer</a> in Bangalore</span>
-			</div>
-			<nav id="colorlib-main-menu" role="navigation" class="navbar">
-				<div id="navbar" class="collapse">
-					<ul>
-						<li class="active"><a href="#" data-nav-section="home">Home</a></li>
-						<li><a href="#" data-nav-section="about">About Me</a></li>
-						<li><a href="#" data-nav-section="skills">Skills</a></li>
-						<li><a href="#" data-nav-section="education">Education</a></li>
-						<li><a href="#" data-nav-section="experience">Experience</a></li>
-						<li><a href="#" data-nav-section="work">Work</a></li>
-						<li><a href="#" data-nav-section="blog">Blog</a></li>
-						
-					</ul>
-				</div>
-			</nav>
+    body {
+      position: relative;
+    }
 
-			<div class="colorlib-footer">
-				<p><small>&copy; 
-Copyright All rights reserved. Made by Jeswin Morris</a>
-</span> </small></p>
-				<ul>
-					<li><a href="#"><i class="icon-facebook2"></i></a></li>
-					<li><a href="#"><i class="icon-twitter2"></i></a></li>
-					<li><a href="#"><i class="icon-instagram"></i></a></li>
-					<li><a href="#"><i class="icon-linkedin2"></i></a></li>
-				</ul>
-			</div>
+    /* Background with grid & noise */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(250, 204, 21, 0.22), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(234, 179, 8, 0.25), transparent 60%),
+        radial-gradient(circle at 50% 120%, rgba(23, 23, 23, 0.9), transparent 65%);
+      pointer-events: none;
+    }
 
-		</aside>
+    .bg-layer::before {
+      content: "";
+      position: absolute;
+      inset: -200px;
+      background-image:
+        linear-gradient(rgba(15, 23, 42, 0.85) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.85) 1px, transparent 1px);
+      background-size: 100px 100px;
+      opacity: 0.4;
+      animation: grid-drift 40s linear infinite;
+    }
 
-		<div id="colorlib-main">
-			<section id="colorlib-hero" class="js-fullheight" data-section="home">
-				<div class="flexslider js-fullheight">
-					<ul class="slides">
-				   	<li style="background-image: url(images/wall.png);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-					   				<div class="slider-text-inner js-fullheight">
-					   					<div class="desc">
-						   					<h1>Hi <br>I'm Jeswin Morris</h1>
-						   					<h2>I am a B.Sc Computer science graduate </h2>
-												<p><a class="btn btn-primary btn-learn"> <i class="icon-download4"></i></a></p>
-											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				   	<li style="background-image: url(images/wall.png);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<div class="desc">
-						   					<h1>I am a Web developer </h1>
-												<h2>I can develop websites for different business sectors and landing pages for product promotion</h2>
-												<p><a class="btn btn-primary btn-learn"><i class="icon-briefcase3"></i></a></p>
-											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
+    .bg-layer::after {
+      content: "";
+      position: absolute;
+      inset: -150px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='6' cy='6' r='1' fill='%23facc15' opacity='0.4'/%3E%3C/svg%3E");
+      opacity: 0.18;
+      animation: dots-drift 35s linear infinite;
+    }
 
-					   <li style="background-image: url(images/wall.png);">
-						<div class="overlay"></div>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-									<div class="slider-text-inner">
-										<div class="desc">
-											<h1>I am a Designer<br> </h1>
-											 <h2>I can design logo, banner and create Ad video for promotion</h2>
-											 <p><a class="btn btn-primary btn-learn"> <i class="icon-briefcase3"></i></a></p>
-										 </div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li style="background-image: url(images/wall.	);">
-						<div class="overlay"></div>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-									<div class="slider-text-inner">
-										<div class="desc">
-											<h1>I can do Social media marketing  <br> </h1>
-											 <h2>I can design logo, banner and create Ad video and run ad campaigns for promotion</h2>
-											 <p><a class="btn btn-primary btn-learn"> <i class="icon-briefcase3"></i></a></p>
-										 </div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				  	</ul>
-			  	</div>
-			</section>
+    @keyframes grid-drift {
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(-120px,-120px,0); }
+    }
 
-			<section class="colorlib-about" data-section="about">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="col-md-12">
-									<div class="about-desc">
-										<span class="heading-meta">About Me</span>
-										<h2 class="colorlib-heading">Who Am I?</h2>
-										<p><strong>Hi I'm Jeswin Morris</strong> I am from kerala , I value the quality of work as an art of excellence. This is what makes me who I am. I completed my B.Sc. Computer science in 2020 from RVS college of arts and science in coimbatore. I am interested in making Music , DJ, Video and photo editing in Light room and other tools. My hobbies are chalk carving , feather painting and pencil sketches. I also love to do google search. What keeps me motivated is to learn new technologies everyday and keep myself updated. </p>
-										<p>.</p>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
-									<div class="services color-1">
-										<span class="icon2"><i class="icon-bulb"></i></span>
-										<h3>Web Design</h3>
-									</div>
-								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
-									<div class="services color-2">
-										<span class="icon2"><i class="icon-globe-outline"></i></span>
-										<h3>Content </h3>
-									</div>
-								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
-									<div class="services color-3">
-										<span class="icon2"><i class="icon-data"></i></span>
-										<h3>Product design</h3>
-									</div>
-								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
-									<div class="services color-4">
-										<span class="icon2"><i class="icon-phone3"></i></span>
-										<h3>Social Media</h3>
-									</div>
-								</div>
-							</div>
-							<!-- <div class="row">
-								<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-									<div class="hire">
-										<h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
-										<a href="#" class="btn-hire">Hire me</a>
-									</div>
-								</div>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</section>
+    @keyframes dots-drift {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      100% { transform: translate3d(90px,130px,0) scale(1.08); }
+    }
 
+    /* Shell */
+    .shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px clamp(14px, 3vw, 24px) 70px;
+      min-height: 100vh;
+      position: relative;
+    }
 
-			
-			<section class="colorlib-services" data-section="services">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">What I do?</span>
-							<h2 class="colorlib-heading">Here are some of my expertise</h2>
-						</div>
-					</div>
-					<div class="row row-pt-md">
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-1">
-								<span class="icon">
-									<i class="icon-bulb"></i>
-								</span>
-								<div class="desc">
-									<h3>Innovative Ideas</h3>
-									<p>To engage with more customers through website and social media </p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-2">
-								<span class="icon">
-									<i class="icon-data"></i>
-								</span>
-								<div class="desc">
-									<h3>Content</h3>
-									<p>As an author of my own <a href="https://l.instagram.com/?u=https%3A%2F%2Fcyfrinluke.blogspot.com%2F2022%2F03%2Fluke-chosen-one-author-jeswin-morris.html%3Fm%3D1%26fbclid%3DPAAaa3pc-szTirS_KUDjBA-Ed8V9G3o6l5ce-genmF6OuBwc3fQn6Jtg1o5v8&e=AT3PYwF1vPrLtN9mjOS4Uk-p_DQT5jGBX3nAz_MRNdmjSbhklL3tB6YAoDNg3CvkaKNZbyC_EXrspB3agxiinw-u4pgLLWpVXf5RLfvxzqDBOaLaZ9sApg">book</a> ,I can write content for products and pages</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-3">
-								<span class="icon">
-									<i class="icon-phone3"></i>
-								</span>
-								<div class="desc">
-									<h3>Social Media</h3>
-									<p>Create and connect all social media platforms and update posts</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-4">
-								<span class="icon">
-									<i class="icon-layers2"></i>
-								</span>
-								<div class="desc">
-									<h3>Product Design</h3>
-									<p>Design posters and update in social platforms for Product promotion </p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-5">
-								<span class="icon">
-									<i class="icon-data"></i>
-								</span>
-								<div class="desc">
-									<h3>Logo Design</h3>
-									<p>Branded Logo Design for local Business and online business.  </p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-6">
-								<span class="icon">
-									<i class="icon-phone3"></i>
-								</span>
-								<div class="desc">
-									<h3>Sale Strategy</h3>
-									<p>Planned campaigns and attract customers through online offers</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<div id="colorlib-counter" class="colorlib-counters" style="background-image: url(images/cover_bg_1.jpg);" data-stellar-background-ratio="0.5">
-				<div class="overlay"></div>
-				<div class="colorlib-narrow-content">
-					<div class="row">
-					</div>
-					<div class="row">
-						<div class="col-md-3 text-center animate-box">
-							<span class="colorlib-counter js-counter" data-from="0" data-to="34" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Projects</span>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<span class="colorlib-counter js-counter" data-from="0" data-to="6" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Clients</span>
-						</div>
-						<!-- <div class="col-md-3 text-center animate-box">
-							<span class="colorlib-counter js-counter" data-from="0" data-to="1" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Partner</span>
-						</div> -->
-					</div>
-				</div>
-			</div>
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      margin-bottom: 18px;
+      backdrop-filter: blur(22px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), transparent);
+    }
 
-			<section class="colorlib-skills" data-section="skills">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">My Specialty</span>
-							<h2 class="colorlib-heading animate-box">My Skills</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<p>I have worked with different clients mostly from textile and restaurant. Most of my works was to create temperory landing page for seasonal campaigns and connect social media platforms. </p>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>Canva, Figma , Sketch</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="75"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								    <span>75%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Html , css</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="60"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:60%">
-								    <span>80%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>Content writing ,  Python automation</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-3" role="progressbar" aria-valuenow="85"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:85%">
-								    <span>85%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Social Media marketing</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								    <span>60%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>Product Designing</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="70"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-								    <span>70%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Advertisement Video</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								    <span>80%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+    .nav-bar {
+      height: var(--nav-height);
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.22), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(234, 179, 8, 0.2), transparent 60%),
+        rgba(15, 23, 42, 0.98);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
 
-			<section class="colorlib-education" data-section="education">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Education</span>
-							<h2 class="colorlib-heading animate-box">Education</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<div class="fancy-collapse-panel">
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									        <h4 class="panel-title">
-									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">B.Sc. Computer Science
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-									         <div class="panel-body">
-									            <div class="row">
-										      		<div class="col-md-6">
-										      			<p>Completed my Bachelors degree from RVS college of arts and science in 2020 </p>
-										      		</div>
-										      		
-										      	</div>
-									         </div>
-									    </div>
-									</div>
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingTwo">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">High School
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-									        <div class="panel-body">
-									            <p>Completed my High school from Nanjappa municipal boys high school in 2017.</p>
-													
-									        </div>
-									    </div>
-									</div>
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingThree">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">SSLC
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-									        <div class="panel-body">
-									            <p>Completed my Secondary school from kongu vellalar matriculation school in 2015.</p>	
-									        </div>
-									    </div>
-									</div>
+    .nav-left {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
 
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+    .nav-core {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(234, 179, 8, 0.9);
+      background:
+        radial-gradient(circle at 30% 0%, #facc15, #020617);
+      box-shadow: 0 0 30px rgba(250, 204, 21, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
 
-			<section class="colorlib-experience" data-section="experience">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Experience</span>
-							<h2 class="colorlib-heading animate-box">Work Experience</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-				         <div class="timeline-centered">
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
+    .nav-core::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: inherit;
+      border: 1px solid rgba(248, 250, 252, 0.65);
+    }
 
-					               <div class="timeline-icon color-1">
-					                  <i class="icon-pen2"></i>
-					               </div>
+    .nav-ident {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
 
-					               <div class="timeline-label">
-					                  <h2><a href="#">Operations Manager</a> <span>2020-2022</span></h2>
-					                  <p>Worked as operations manager in AR textile solutions by handling production and dispatch of masks during covid outbreak.</p>
-					               </div>
-					            </div>
-					         </article>
+    .nav-ident-main {
+      font-family: "Orbitron", system-ui, sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
 
+    .nav-ident-sub {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-sub);
+    }
 
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-2">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Customer Service Executive</a> <span>2022-2023</span></h2>
-					                  <p>Works as Issue resolution specialist by providing tech support to students of e-learning platform Byju's think and learn Pvt Ltd.</p>
-					               </div>
-					            </div>
-					         </article>
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
 
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-3">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Freelancer</a> <span>2020-2023</span></h2>
-					                  <p>Worked as freelancer since 2020 in multiple projects.</p>
-					               </div>
-					            </div>
-					         </article>
+    .nav-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: transparent;
+      transition: 0.15s ease;
+    }
 
-					
+    .nav-links a:hover {
+      color: var(--accent);
+      border-color: rgba(250, 204, 21, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+    }
 
-					         <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-none">
-					               </div>
-					            </div>
-					         </article>
-					      </div>
-					   </div>
-				   </div>
-				</div>
-			</section>
+    .nav-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.7);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.25), rgba(5, 46, 22, 0.95));
+      color: #bbf7d0;
+    }
 
-			<section class="colorlib-work" data-section="work">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">My Work</span>
-							<h2 class="colorlib-heading animate-box">Recent Work</h2>
-						</div>
-					</div>
-					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft" id="P1">
-						<div class="col-md-12">
-							<p class="work-menu">
-								<span><a href="work" class="active">Graphic Design</a></span>
-								 <span><a href=""></a></span> 
-								  
-						</div>
-					</div>
-<!-- My Works -->
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+    }
 
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/bb1.jpeg"></a>
-	<div class="project" style="background-image: url(images/bb1.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p9.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
+    /* Mobile nav */
+    .nav-right {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-toggle-line {
+      width: 16px;
+      height: 1px;
+      background: var(--text-main);
+      box-shadow: 0 4px 0 var(--text-main), 0 -4px 0 var(--text-main);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-toggle {
+        display: inline-flex;
+      }
+      .nav-links.mobile-open {
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 10px;
+        padding: 8px 10px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.98);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+        z-index: 25;
+      }
+      .nav-links.mobile-open a {
+        width: 100%;
+        text-align: right;
+      }
+    }
+
+    /* Hero + meters */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(24, 24, 27, 0.96), rgba(15, 23, 42, 0.96));
+      box-shadow: var(--shadow);
+      padding: 18px 18px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid transparent;
+      background: linear-gradient(130deg, rgba(250, 204, 21, 0.8), rgba(234, 179, 8, 0.7), transparent) border-box;
+      mask: linear-gradient(#000, #000) padding-box, linear-gradient(#000, #000);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .panel-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(250, 204, 21, 0.6);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+    }
+
+    .hero-chip span:first-child {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(250, 204, 21, 0.95);
+    }
+
+    .hero-title {
+      font-family: "Orbitron", system-ui, sans-serif;
+      font-size: clamp(26px, 4vw, 36px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--text-sub);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 14px;
+    }
+
+    .hero-tag {
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.6);
+      padding: 3px 7px;
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.8);
+      background: linear-gradient(135deg, #facc15, #f97316);
+      color: #111827;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 28px rgba(250, 204, 21, 0.9);
+      transition: 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+      box-shadow: 0 0 40px rgba(250, 204, 21, 1);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-sub);
+      padding: 8px 12px;
+      font-size: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .btn-ghost:hover {
+      color: var(--accent);
+      border-color: rgba(250, 204, 21, 0.8);
+      transform: translateY(-1px);
+    }
+
+    /* Right console with ticker & meters */
+    .console-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .console {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(12, 17, 28, 0.98);
+      padding: 10px 10px 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .console-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .console-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 5px;
+    }
+
+    .console-leds {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+
+    .console-led {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.9);
+    }
+
+    .console-led.accent {
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(250, 204, 21, 1);
+    }
+
+    /* Ticker */
+    .ticker-shell {
+      border-radius: 8px;
+      border: 1px solid rgba(250, 204, 21, 0.55);
+      background: rgba(15, 23, 42, 0.96);
+      overflow: hidden;
+      position: relative;
+      height: 32px;
+      display: flex;
+      align-items: center;
+    }
+
+    .ticker-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      padding: 0 8px;
+      border-right: 1px solid rgba(250, 204, 21, 0.5);
+      flex-shrink: 0;
+    }
+
+    .ticker-track {
+      position: relative;
+      overflow: hidden;
+      flex: 1;
+      height: 100%;
+    }
+
+    .ticker-list {
+      position: absolute;
+      white-space: nowrap;
+      display: inline-block;
+      animation: ticker-move 28s linear infinite;
+      font-size: 11px;
+      color: var(--text-sub);
+      padding-left: 100%;
+    }
+
+    @keyframes ticker-move {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Meters */
+    .meter-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .meter {
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 5px 6px 6px;
+      font-size: 10px;
+    }
+
+    .meter-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-sub);
+    }
+
+    .meter-bar-shell {
+      height: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.6);
+      overflow: hidden;
+      background: rgba(12, 10, 5, 0.95);
+    }
+
+    .meter-bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      box-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
+      width: 0%;
+      transform-origin: left;
+    }
+
+    .meter-readout {
+      margin-top: 3px;
+      font-size: 10px;
+      color: var(--accent);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Sections shared */
+    section {
+      margin-top: 20px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--bg-panel);
+      box-shadow: var(--shadow);
+      padding: 16px 16px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.18), transparent 60%);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "Orbitron", system-ui, sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-sub {
+      font-size: 11px;
+      color: var(--text-sub);
+      max-width: 380px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+    }
+
+    .tag {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 3px 6px;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    @media (max-width: 720px) {
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .about-text {
+      font-size: 12px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    .about-text strong {
+      color: var(--accent);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(12, 17, 28, 0.98);
+      padding: 8px 8px 9px;
+    }
+
+    .card-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    .card-body {
+      color: var(--text-sub);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px;
+    }
+
+    .skill-card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(12, 17, 28, 0.98);
+      padding: 8px 8px 9px;
+      font-size: 11px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .skill-name {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .skill-val {
+      color: var(--accent);
+    }
+
+    .skill-bar {
+      height: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.7);
+      overflow: hidden;
+      background: rgba(7, 7, 7, 0.95);
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      box-shadow: 0 0 16px rgba(250, 204, 21, 0.9);
+      width: 0%;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 14px;
+      font-size: 11px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(148, 163, 184, 0.75), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -3px;
+      top: 2px;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(250, 204, 21, 1);
+    }
+
+    .timeline-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .timeline-meta {
+      font-size: 10px;
+      color: var(--text-sub);
+      margin-bottom: 3px;
+    }
+
+    .timeline-body {
+      color: var(--text-sub);
+    }
+
+    /* Work */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .work-card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: #020617;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      position: relative;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .work-card img,
+    .work-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent 70%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 8px;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      font-size: 11px;
+    }
+
+    .work-tag {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-sub);
+      margin-bottom: 2px;
+    }
+
+    .work-title {
+      font-size: 11px;
+    }
+
+    .work-card:hover {
+      border-color: rgba(250, 204, 21, 0.9);
+      box-shadow: 0 0 28px rgba(250, 204, 21, 0.9);
+      transform: translateY(-3px);
+    }
+
+    .work-card:hover .work-overlay {
+      opacity: 1;
+    }
+
+    /* Blog */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+    }
+
+    .blog-card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(12, 17, 28, 0.98);
+      overflow: hidden;
+      font-size: 11px;
+    }
+
+    .blog-img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-body {
+      padding: 7px 8px 8px;
+      color: var(--text-sub);
+    }
+
+    .blog-meta {
+      font-size: 10px;
+      margin-bottom: 2px;
+    }
+
+    .blog-title {
+      font-size: 11px;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .blog-title:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 18px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 10px;
+      color: var(--text-sub);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .social-link {
+      text-decoration: none;
+      color: var(--text-sub);
+      padding: 3px 6px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .social-link:hover {
+      color: var(--accent);
+      border-color: rgba(250, 204, 21, 0.8);
+    }
+  </style>
+</head>
+<body>
+<div class="bg-layer"></div>
+
+<div class="shell">
+  <!-- NAV -->
+  <header>
+    <div class="nav-bar">
+      <div class="nav-left">
+        <div class="nav-core"></div>
+        <div class="nav-ident">
+          <div class="nav-ident-main">Jeswin&nbsp;Morris</div>
+          <div class="nav-ident-sub">Black &amp; Yellow HUD · v3.0</div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#work">Work</a>
+          <a href="#blog">Blog</a>
+        </nav>
+        <div class="nav-status">
+          <span class="status-dot"></span>
+          <span>Online</span>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <div class="nav-toggle-line"></div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & METERS -->
+  <main class="hero-grid" id="home">
+    <section class="panel">
+      <div class="panel-inner">
+        <div class="hero-chip">
+          <span></span>
+          <span>Interface: JM-HUD</span>
+          <span>Mode: Hologram</span>
+        </div>
+        <h1 class="hero-title">
+          Web · Design · SMM<br />
+          Creative Operator
+        </h1>
+        <p class="hero-subtitle">
+          B.Sc Computer Science graduate building dark, cinematic experiences for campaigns, landing pages and social media systems.
+        </p>
+
+        <div class="hero-tags">
+          <span class="hero-tag">Web Design</span>
+          <span class="hero-tag">Brand Visuals</span>
+          <span class="hero-tag">Social Media</span>
+          <span class="hero-tag">Content</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary">Open Work Console</a>
+          <a href="#contact" class="btn-ghost">Contact Jeswin</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="console-grid">
+      <!-- ticker -->
+      <div class="console">
+        <div class="console-inner">
+          <div class="console-header">
+            <span>System feed</span>
+            <div class="console-leds">
+              <span class="console-led"></span>
+              <span class="console-led accent"></span>
+              <span class="console-led"></span>
+            </div>
+          </div>
+          <div class="ticker-shell">
+            <div class="ticker-label">Live log</div>
+            <div class="ticker-track">
+              <div class="ticker-list">
+                Initializing portfolio HUD... · 34 projects indexed · 6 client streams online ·
+                Web / Design / SMM stack loaded · Bangalore node active · Kerala origin verified ·
+                Poster, logo, UI and video modules ready for preview · Reading blog feed and content matrix...
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- meters -->
+      <div class="console">
+        <div class="console-inner">
+          <div class="console-header">
+            <span>Realtime meters</span>
+          </div>
+          <div class="meter-grid">
+            <div class="meter">
+              <div class="meter-header">
+                <span>Design load</span>
+                <span id="meter-design-val">0%</span>
+              </div>
+              <div class="meter-bar-shell">
+                <div class="meter-bar-fill" id="meter-design"></div>
+              </div>
+              <div class="meter-readout">
+                <span>Vector / layout</span>
+                <span>Live</span>
+              </div>
+            </div>
+            <div class="meter">
+              <div class="meter-header">
+                <span>Web ops</span>
+                <span id="meter-web-val">0%</span>
+              </div>
+              <div class="meter-bar-shell">
+                <div class="meter-bar-fill" id="meter-web"></div>
+              </div>
+              <div class="meter-readout">
+                <span>HTML / CSS</span>
+                <span>Active</span>
+              </div>
+            </div>
+            <div class="meter">
+              <div class="meter-header">
+                <span>Content</span>
+                <span id="meter-content-val">0%</span>
+              </div>
+              <div class="meter-bar-shell">
+                <div class="meter-bar-fill" id="meter-content"></div>
+              </div>
+              <div class="meter-readout">
+                <span>Writing / scripts</span>
+                <span>Streaming</span>
+              </div>
+            </div>
+            <div class="meter">
+              <div class="meter-header">
+                <span>SMM signal</span>
+                <span id="meter-smm-val">0%</span>
+              </div>
+              <div class="meter-bar-shell">
+                <div class="meter-bar-fill" id="meter-smm"></div>
+              </div>
+              <div class="meter-readout">
+                <span>Campaigns</span>
+                <span>Monitor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">About Jeswin</h2>
+          <p class="section-sub">
+            A creative technologist blending design, storytelling and systems thinking for better brand presence.
+          </p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">About</span>
+          <span class="tag">Personality</span>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            <strong>Hi, I’m Jeswin.</strong> I’m from Kerala, now in Bangalore, and I treat every project like a crafted artifact, not just another asset.
+            I completed my B.Sc Computer Science at RVS College of Arts and Science in 2020 and have been building and designing experiences since then.
+          </p>
+          <br />
+          <p>
+            I explore music and DJing, and I enjoy editing video and photos in tools like Lightroom. I also experiment with chalk carving, feather painting
+            and pencil sketches — all of which sharpen how I see composition, contrast and balance.
+          </p>
+          <br />
+          <p>
+            I love deep research, new tools and tracking tech trends. Staying updated daily keeps me excited and lets me translate ideas into concrete,
+            business‑ready outputs for clients.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">Web design</div>
+            <div class="card-body">
+              Campaign‑ready websites and landing pages with a focus on clarity and conversion.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Content</div>
+            <div class="card-body">
+              As the author of my own book, I write page, product and blog copy that sounds human.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Product design</div>
+            <div class="card-body">
+              Posters and creatives that help offers, menus and products stand out quickly.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Social media</div>
+            <div class="card-body">
+              From setup to consistent posts, I keep your channels in sync with your campaigns.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Skill Matrix</h2>
+          <p class="section-sub">
+            A quick readout of tools and strengths, tuned by client work and experiments.
+          </p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Skills</span>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Canva · Figma · Sketch</span>
+            <span class="skill-val">75%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">HTML · CSS</span>
+            <span class="skill-val">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Content writing · Python automation</span>
+            <span class="skill-val">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Social media marketing</span>
+            <span class="skill-val">60%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Product designing</span>
+            <span class="skill-val">70%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Advertisement video</span>
+            <span class="skill-val">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Education</h2>
+          <p class="section-sub">
+            CS foundations plus constant self‑learning in design, content and marketing.
+          </p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Education</span>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">B.Sc Computer Science</div>
+          <div class="timeline-meta">RVS College of Arts and Science · 2020</div>
+          <div class="timeline-body">
+            Completed my bachelor’s degree with focus on programming and problem solving.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">High school</div>
+          <div class="timeline-meta">Nanjappa Municipal Boys High School · 2017</div>
+          <div class="timeline-body">
+            Finished high school and started leaning into IT and tech‑driven fields.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">SSLC</div>
+          <div class="timeline-meta">Kongu Vellalar Matriculation School · 2015</div>
+          <div class="timeline-body">
+            Secondary school education that set up the move into computer science.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Experience</h2>
+          <p class="section-sub">
+            Operations, customer support and freelance projects all feeding into practical design decisions.
+          </p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Experience</span>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Operations Manager</div>
+          <div class="timeline-meta">AR Textile Solutions · 2020–2022</div>
+          <div class="timeline-body">
+            Managed mask production and dispatch during the COVID outbreak, coordinating teams, timelines and quality.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Customer Service Executive</div>
+          <div class="timeline-meta">BYJU’S Think and Learn Pvt Ltd · 2022–2023</div>
+          <div class="timeline-body">
+            Worked as issue resolution specialist, handling tech support for students on an e‑learning platform.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Freelancer</div>
+          <div class="timeline-meta">Independent · 2020–Present</div>
+          <div class="timeline-body">
+            Delivered landing pages, posters, logos and social media assets primarily for textile and restaurant clients.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Work Console</h2>
+          <p class="section-sub">
+            Posters, logos, UI screens and motion pieces from recent project streams.
+          </p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Posters</span>
+          <span class="tag">Logos</span>
+          <span class="tag">UI</span>
+          <span class="tag">Video</span>
+        </div>
+      </div>
+
+      <!-- Posters (use your actual images) -->
+      <div class="work-grid">
+        <a class="work-card" href="images/bb1.jpeg" target="_blank">
+          <img src="images/bb1.jpeg" alt="Poster 1" />
+          <div class="work-overlay">
+            <div class="work-tag">Poster</div>
+            <div class="work-title">Campaign creative</div>
+          </div>
+        </a>
+        <a class="work-card" href="images/bb2.jpeg" target="_blank">
+          <img src="images/bb2.jpeg" alt="Poster 2" />
+          <div class="work-overlay">
+            <div class="work-tag">Poster</div>
+            <div class="work-title">Brand promotion</div>
+          </div>
+        </a>
+        <a class="work-card" href="images/p9.jpeg" target="_blank">
+          <img src="images/p9.jpeg" alt="Poster 3" />
+          <div class="work-overlay">
+            <div class="work-tag">Poster</div>
+            <div class="work-title">Seasonal offer</div>
+          </div>
+        </a>
+        <a class="work-card" href="images/p10.jpeg" target="_blank">
+          <img src="images/p10.jpeg" alt="Poster 4" />
+          <div class="work-overlay">
+            <div class="work-tag">Poster</div>
+            <div class="work-title">Restaurant creative</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Logos -->
+      <div style="margin-top:10px;">
+        <div class="section-header" style="padding:0;margin-bottom:4px;">
+          <div><h3 class="section-title" style="font-size:12px;">Logo grid</h3></div>
+        </div>
+        <div class="work-grid">
+          <a class="work-card" href="images/logo.png" target="_blank">
+            <img src="images/logo.png" alt="Logo 1" />
+            <div class="work-overlay">
+              <div class="work-tag">Logo</div>
+              <div class="work-title">Brandmark exploration</div>
+            </div>
+          </a>
+          <a class="work-card" href="images/logo2.jpeg" target="_blank">
+            <img src="images/logo2.jpeg" alt="Logo 2" />
+            <div class="work-overlay">
+              <div class="work-tag">Logo</div>
+              <div class="work-title">Local business identity</div>
+            </div>
+          </a>
+          <a class="work-card" href="images/logo3.jpeg" target="_blank">
+            <img src="images/logo3.jpeg" alt="Logo 3" />
+            <div class="work-overlay">
+              <div class="work-tag">Logo</div>
+              <div class="work-title">Minimal mark</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- UI -->
+      <div style="margin-top:10px;">
+        <div class="section-header" style="padding:0;margin-bottom:4px;">
+          <div><h3 class="section-title" style="font-size:12px;">UI lab</h3></div>
+        </div>
+        <div class="work-grid">
+          <a class="work-card" href="images/ui1.jpeg" target="_blank">
+            <img src="images/ui1.jpeg" alt="UI 1" />
+            <div class="work-overlay">
+              <div class="work-tag">UI</div>
+              <div class="work-title">Interface exploration</div>
+            </div>
+          </a>
+          <a class="work-card" href="images/ui3.jpeg" target="_blank">
+            <img src="images/ui3.jpeg" alt="UI 2" />
+            <div class="work-overlay">
+              <div class="work-tag">UI</div>
+              <div class="work-title">Mobile layout</div>
+            </div>
+          </a>
+          <a class="work-card" href="images/ui2.jpeg" target="_blank">
+            <img src="images/ui2.jpeg" alt="UI 3" />
+            <div class="work-overlay">
+              <div class="work-tag">UI</div>
+              <div class="work-title">Dashboard concept</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Video -->
+      <div style="margin-top:10px;">
+        <div class="section-header" style="padding:0;margin-bottom:4px;">
+          <div><h3 class="section-title" style="font-size:12px;">Video node</h3></div>
+        </div>
+        <div class="work-grid">
+          <div class="work-card">
+            <video controls>
+              <source src="images/v1.mp4" type="video/mp4" />
+            </video>
+            <div class="work-overlay">
+              <div class="work-tag">Video</div>
+              <div class="work-title">Promo visual</div>
+            </div>
+          </div>
+          <div class="work-card">
+            <video controls>
+              <source src="images/ad1.mp4" type="video/mp4" />
+            </video>
+            <div class="work-overlay">
+              <div class="work-tag">Video</div>
+              <div class="work-title">Ad creative</div>
+            </div>
+          </div>
+          <div class="work-card">
+            <video controls>
+              <source src="images/ad2.mp4" type="video/mp4" />
+            </video>
+            <div class="work-overlay">
+              <div class="work-tag">Video</div>
+              <div class="work-title">Campaign spot</div>
+            </div>
+          </div>
+          <div class="work-card">
+            <video controls>
+              <source src="images/iv1.mp4" type="video/mp4" />
+            </video>
+            <div class="work-overlay">
+              <div class="work-tag">Video</div>
+              <div class="work-title">Interview style</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Recent Logs</h2>
+          <p class="section-sub">
+            A few written pieces on IT, devices and the AI wave.
+          </p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Blog</span>
+        </div>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card">
+          <a href="https://medium.com/@jeswinmorrisos/how-to-get-into-it-field-after-completing-college-44e4a24fbbf7" target="_blank">
+            <img src="images/blog-1.jpg" alt="How to get into IT" class="blog-img" />
+          </a>
+          <div class="blog-body">
+            <div class="blog-meta">April 4, 2023 · Cold talks</div>
+            <a class="blog-title" href="https://medium.com/@jeswinmorrisos/how-to-get-into-it-field-after-completing-college-44e4a24fbbf7" target="_blank">
+              How to get into IT field after completing college?
+            </a>
+            <p>Practical thoughts on entering IT once you’re out of college.</p>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="https://medium.com/@jeswinmorrisos/oneplus-nord-ce-3-lite-a-budget-5g-smartphone-with-impressive-features-4a2c72b90b33" target="_blank">
+            <img src="images/blog-3.png" alt="OnePlus Nord CE 3 Lite" class="blog-img" />
+          </a>
+          <div class="blog-body">
+            <div class="blog-meta">April 5, 2023 · Cold talks</div>
+            <a class="blog-title" href="https://medium.com/@jeswinmorrisos/oneplus-nord-ce-3-lite-a-budget-5g-smartphone-with-impressive-features-4a2c72b90b33" target="_blank">
+              OnePlus Nord CE 3 Lite: Budget 5G with features
+            </a>
+            <p>Looking at a budget‑friendly 5G phone and what it offers.</p>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="https://medium.com/@jeswinmorrisos/ai-wave-revolutionizing-the-future-with-artificial-intelligence-37fa538ef41d" target="_blank">
+            <img src="images/blog-4.png" alt="AI Wave" class="blog-img" />
+          </a>
+          <div class="blog-body">
+            <div class="blog-meta">April 6, 2023 · Cold talks</div>
+            <a class="blog-title" href="https://medium.com/@jeswinmorrisos/ai-wave-revolutionizing-the-future-with-artificial-intelligence-37fa538ef41d" target="_blank">
+              AI Wave: Revolutionizing the future
+            </a>
+            <p>Reflections on how AI is reshaping work and everyday life.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div>© <span id="year"></span> Jeswin Morris. All rights reserved.</div>
+    <div class="social-row">
+      <!-- Replace # with real profiles -->
+      <a class="social-link" href="#" target="_blank">Facebook</a>
+      <a class="social-link" href="#" target="_blank">Twitter</a>
+      <a class="social-link" href="#" target="_blank">Instagram</a>
+      <a class="social-link" href="#" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
 </div>
 
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/bb2.jpeg"></a>
-	<div class="project" style="background-image: url(images/bb2.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p9.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-					
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p9.jpeg"></a>
-	<div class="project" style="background-image: url(images/p9.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p9.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p10.jpeg"></a>
-	<div class="project" style="background-image: url(images/p10.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p10.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p7.jpeg"></a>
-	<div class="project" style="background-image: url(images/p7.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p7.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p5.jpeg"></a>
-	<div class="project" style="background-image: url(images/p5.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p5.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p4.jpeg"></a>
-	<div class="project" style="background-image: url(images/p4.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p4.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p1.jpeg"></a>
-	<div class="project" style="background-image: url(images/p1.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p1.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p2.jpeg"></a>
-	<div class="project" style="background-image: url(images/p2.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p2.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p11.jpeg"></a>
-	<div class="project" style="background-image: url(images/p11.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p11.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p12.jpeg"></a>
-	<div class="project" style="background-image: url(images/p12.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p12.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p13.jpeg"></a>
-	<div class="project" style="background-image: url(images/p13.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p13.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p14.jpeg"></a>
-	<div class="project" style="background-image: url(images/p14.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p14.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p15.jpeg"></a>
-	<div class="project" style="background-image: url(images/p15.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p15.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p16.jpeg"></a>
-	<div class="project" style="background-image: url(images/p16.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p16.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p17.jpeg"></a>
-	<div class="project" style="background-image: url(images/p17.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p17.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p18.jpeg"></a>
-	<div class="project" style="background-image: url(images/p18.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p18.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p19.jpeg"></a>
-	<div class="project" style="background-image: url(images/p19.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p19.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p20.jpeg"></a>
-	<div class="project" style="background-image: url(images/p20.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p20.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p21.jpeg"></a>
-	<div class="project" style="background-image: url(images/p21.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p21.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p22.jpeg"></a>
-	<div class="project" style="background-image: url(images/p22.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p22.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/p23.jpeg"></a>
-	<div class="project" style="background-image: url(images/p23.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/p23.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-<!-------------------------------------------------------- Logo works-->
-			<section class="colorlib-work" data-section="work">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta"></span>
-							<h2 class="colorlib-heading animate-box">Logo</h2>
-						</div>
-					</div>
-					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft" id="P1">
-						<div class="col-md-12">
-							<p class="work-menu">
-								<span><a href="work" class="active">Logo Design</a></span>
-								 
-								  
-						</div>
-					</div>
-<!--  Works -->
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/logo.png"></a>
-	<div class="project" style="background-image: url(images/logo.png);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/logo.png"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>		
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/logo2.jpeg"></a>
-	<div class="project" style="background-image: url(images/logo2.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/logo2.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>	
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-	<a href="images/logo3.jpeg"></a>
-	<div class="project" style="background-image: url(images/logo3.jpeg);">
-		<div class="desc">
-			<div class="con">
-				<span>Poster</span>
-				<p class="icon">
-					<span><a href="images/logo3.jpeg"><i class="icon-eye"></i> View</a></span>
-					</p>
-			</div>
-		</div>
-	</div>
-</div>	
-
-<!-- Works -->
-<div class="row"></div>
-</div>
-</section>
-
-
-<!---------------------------------------------------- Logo works-->
-
-
-<!-------------------------------------------------------- UI works-->
-<section class="colorlib-work" data-section="work">
-	<div class="colorlib-narrow-content">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-				<span class="heading-meta"></span>
-				<h2 class="colorlib-heading animate-box"></h2>
-			</div>
-		</div>
-		<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft" id="P1">
-			<div class="col-md-12">
-				<p class="work-menu">
-					<span><a href="work" class="active">UI Design</a></span>
-					 
-					  
-			</div>
-		</div>
-<!--  Works -->
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-<a href="images/ui1.jpeg"></a>
-<div class="project" style="background-image: url(images/ui1.jpeg);">
-<div class="desc">
-<div class="con">
-	<span>Poster</span>
-	<p class="icon">
-		<span><a href="images/ui1.jpeg"><i class="icon-eye"></i> View</a></span>
-		</p>
-</div>
-</div>
-</div>
-</div>		
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-<a href="images/ui3.jpeg"></a>
-<div class="project" style="background-image: url(images/ui3.jpeg);">
-<div class="desc">
-<div class="con">
-	<span>Poster</span>
-	<p class="icon">
-		<span><a href="images/ui3.jpeg"><i class="icon-eye"></i> View</a></span>
-		</p>
-</div>
-</div>
-</div>
-</div>	
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-<a href="images/ui2.jpeg"></a>
-<div class="project" style="background-image: url(images/ui2.jpeg);">
-<div class="desc">
-<div class="con">
-	<span>Poster</span>
-	<p class="icon">
-		<span><a href="images/ui2.jpeg"><i class="icon-eye"></i> View</a></span>
-		</p>
-</div>
-</div>
-</div>
-</div>	
-
-<!-- Works -->
-<div class="row"></div>
-</div>
-</section>
-
-
-<!---------------------------------------------------- UI works-->
-
-<!-------------------------------------------------------- Video works-->
-<section class="colorlib-work" data-section="work">
-	<div class="colorlib-narrow-content">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-				<span class="heading-meta"></span>
-				<h2 class="colorlib-heading animate-box"></h2>
-			</div>
-		</div>
-		<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft" id="P1">
-			<div class="col-md-12">
-				<p class="work-menu">
-					<span><a href="work" class="active">Video Works</a></span>
-					 
-					  
-			</div>
-		</div>
-<!--  Works -->
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-
-
-
-	<video controls width="250">
-		<source src="images/v1.mp4" type="video/webm">
-	
-		<source src="images/v1.mp4" type="video/mp4">
-	
-		Download the
-		<a href="images/v1.mp4">WEBM</a>
-		or
-		<a href="images/v1.mp4">MP4</a>
-		video.
-	</video>
-	
-
-</div>	
-		
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-
-
-
-	<video controls width="250">
-		<source src="images/ad1.mp4" type="video/webm">
-	
-		<source src="images/ad1.mp4" type="video/mp4">
-	
-		Download the
-		<a href="images/ad1.mp4">WEBM</a>
-		or
-		<a href="images/ad1.mp4">MP4</a>
-		video.
-	</video>
-	
-
-</div>		
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-
-
-
-	<video controls width="250">
-		<source src="images/ad2.mp4" type="video/webm">
-	
-		<source src="images/ad2.mp4" type="video/mp4">
-	
-		Download the
-		<a href="images/ad2.mp4">WEBM</a>
-		or
-		<a href="images/ad2.mp4">MP4</a>
-		video.
-	</video>
-	
-
-</div>	
-
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-
-
-
-	<video controls width="250">
-		<source src="images/iv1.mp4" type="video/webm">
-	
-		<source src="images/iv1.mp4" type="video/mp4">
-	
-		Download the
-		<a href="images/iv1.mp4">WEBM</a>
-		or
-		<a href="images/iv1.mp4">MP4</a>
-		video.
-	</video>
-	
-
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-
-
-
-	<video controls width="250">
-		<source src="images/ui1.mp4" type="video/webm">
-	
-		<source src="images/ui1.mp4" type="video/mp4">
-	
-		Download the
-		<a href="images/ui1.mp4">WEBM</a>
-		or
-		<a href="images/ui1.mp4">MP4</a>
-		video.
-	</video>
-	
-
-</div>
-
-<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-
-
-
-	<video controls width="250">
-		<source src="images/ui2.mp4" type="video/webm">
-	
-		<source src="images/ui2.mp4" type="video/mp4">
-	
-		Download the
-		<a href="images/ui2.mp4">WEBM</a>
-		or
-		<a href="images/ui2.mp4">MP4</a>
-		video.
-	</video>
-	
-
-</div>
-<!-- Works -->
-<div class="row"></div>
-</div>
-</section>
-
-
-<!---------------------------------------------------- video works-->
-
-
-
-			<section class="colorlib-blog" data-section="blog">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Read</span>
-							<h2 class="colorlib-heading">Recent Blog</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="blog-entry">
-								<a href="https://medium.com/@jeswinmorrisos/how-to-get-into-it-field-after-completing-college-44e4a24fbbf7" class="blog-img"><img src="images/blog-1.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 4, 2023 </small> | <small> Cold talks</small> | <small> <i class="icon-bubble3"></i> </small></span>
-									<h3><a href="https://medium.com/@jeswinmorrisos/how-to-get-into-it-field-after-completing-college-44e4a24fbbf7">How to get into IT field after completing college ?</a></h3>
-									<p>The IT industry is a rapidly growing field with endless opportunities for professionals.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="blog-entry">
-								<a href="blog.html" class="blog-img"><img src="images/blog-3.png" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 5, 2023 </small> | <small> Cold talks </small> | <small> <i class="icon-bubble3"></i> </small></span>
-									<h3><a href="https://medium.com/@jeswinmorrisos/oneplus-nord-ce-3-lite-a-budget-5g-smartphone-with-impressive-features-4a2c72b90b33">OnePlus Nord CE 3 Lite: A Budget 5G Smartphone with Impressive Features</a></h3>
-									<p>OnePlus Nord CE 3 Lite: A Budget-Friendly Smartphone with Impressive Features.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="blog-entry">
-								<a href="blog.html" class="blog-img"><img src="images/blog-4.png" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 6, 2023 </small> | <small> Cold talks</small> | <small> <i class="icon-bubble3"></i> </small></span>
-									<h3><a href="https://medium.com/@jeswinmorrisos/ai-wave-revolutionizing-the-future-with-artificial-intelligence-37fa538ef41d">AI Wave: Revolutionizing the Future with Artificial Intelligence</a></h3>
-									<p>Artificial Intelligence (AI) is the buzzword of the modern world.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						
-					</div>
-				</div>
-			</section>
-
-
-			
-		</div><!-- end:colorlib-main -->
-	</div><!-- end:container-wrap -->
-	</div><!-- end:colorlib-page -->
-
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	<!-- Owl carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-	
-	
-	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
-
-	</body>
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("mobile-open");
+  });
+
+  // Close mobile menu on link click
+  navLinks.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => navLinks.classList.remove("mobile-open"));
+  });
+
+  // Realtime meters: random smooth values
+  function animateMeter(idFill, idVal, baseMin, baseMax) {
+    const fill = document.getElementById(idFill);
+    const val = document.getElementById(idVal);
+    let current = baseMin + Math.random() * (baseMax - baseMin);
+
+    function update() {
+      const target = baseMin + Math.random() * (baseMax - baseMin);
+      const step = (target - current) / 20;
+      let i = 0;
+      const interval = setInterval(() => {
+        current += step;
+        i++;
+        const clamped = Math.max(0, Math.min(100, current));
+        fill.style.width = clamped.toFixed(0) + "%";
+        val.textContent = clamped.toFixed(0) + "%";
+        if (i >= 20) clearInterval(interval);
+      }, 80);
+    }
+
+    update();
+    setInterval(update, 3000 + Math.random() * 2000);
+  }
+
+  animateMeter("meter-design", "meter-design-val", 60, 95);
+  animateMeter("meter-web", "meter-web-val", 55, 90);
+  animateMeter("meter-content", "meter-content-val", 65, 98);
+  animateMeter("meter-smm", "meter-smm-val", 40, 85);
+
+  // Current year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
 </html>
-
