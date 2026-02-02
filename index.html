@@ -146,6 +146,7 @@
       inset: 5px;
       border-radius: inherit;
       border: 1px solid rgba(248, 250, 252, 0.65);
+      pointer-events: none;
     }
 
     .nav-ident {
@@ -923,22 +924,23 @@
 <div class="shell">
   <!-- NAV -->
   <header>
-    <div class="nav-left">
-  <div class="nav-core">
-    <img src="4.jpeg" alt="Jeswin profile" style="
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 999px;
-      border: 2px solid rgba(0,0,0,0.65);
-    ">
-  </div>
-  <div class="nav-ident">
-    <div class="nav-ident-main">Jeswin&nbsp;Morris</div>
-    <div class="nav-ident-sub">Black &amp; Yellow HUD · v3.0</div>
-  </div>
-</div>
-
+    <div class="nav-bar">
+      <div class="nav-left">
+        <div class="nav-core">
+          <!-- profile photo inside yellow circle -->
+          <img src="images/about.jpeg" alt="Jeswin profile" style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 999px;
+            border: 2px solid rgba(0,0,0,0.65);
+          ">
+        </div>
+        <div class="nav-ident">
+          <div class="nav-ident-main">Jeswin&nbsp;Morris</div>
+          <div class="nav-ident-sub">Black &amp; Yellow HUD · v3.0</div>
+        </div>
+      </div>
 
       <div class="nav-right">
         <nav class="nav-links" id="navLinks">
@@ -1314,7 +1316,7 @@
         </div>
       </div>
 
-      <!-- Posters (use your actual images) -->
+      <!-- Posters -->
       <div class="work-grid">
         <a class="work-card" href="images/bb1.jpeg" target="_blank">
           <img src="images/bb1.jpeg" alt="Poster 1" />
@@ -1478,7 +1480,7 @@
             <a class="blog-title" href="https://medium.com/@jeswinmorrisos/how-to-get-into-it-field-after-completing-college-44e4a24fbbf7" target="_blank">
               How to get into IT field after completing college?
             </a>
-            <p>Practical thoughts on entering IT once you’re out of college.</p>
+            <p>The IT industry is a rapidly growing field with many paths in.</p>
           </div>
         </article>
         <article class="blog-card">
@@ -1490,7 +1492,7 @@
             <a class="blog-title" href="https://medium.com/@jeswinmorrisos/oneplus-nord-ce-3-lite-a-budget-5g-smartphone-with-impressive-features-4a2c72b90b33" target="_blank">
               OnePlus Nord CE 3 Lite: Budget 5G with features
             </a>
-            <p>Looking at a budget‑friendly 5G phone and what it offers.</p>
+            <p>A look at a budget‑friendly 5G phone and what it offers.</p>
           </div>
         </article>
         <article class="blog-card">
@@ -1502,7 +1504,7 @@
             <a class="blog-title" href="https://medium.com/@jeswinmorrisos/ai-wave-revolutionizing-the-future-with-artificial-intelligence-37fa538ef41d" target="_blank">
               AI Wave: Revolutionizing the future
             </a>
-            <p>Reflections on how AI is reshaping work and everyday life.</p>
+            <p>Thoughts on how AI is reshaping work and everyday life.</p>
           </div>
         </article>
       </div>
@@ -1513,7 +1515,6 @@
   <footer id="contact">
     <div>© <span id="year"></span> Jeswin Morris. All rights reserved.</div>
     <div class="social-row">
-      <!-- Replace # with real profiles -->
       <a class="social-link" href="#" target="_blank">Facebook</a>
       <a class="social-link" href="#" target="_blank">Twitter</a>
       <a class="social-link" href="#" target="_blank">Instagram</a>
