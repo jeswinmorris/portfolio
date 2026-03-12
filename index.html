@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Jeswin Morris · Neo-HUD Portfolio</title>
+  <title>Jeswin Morris ·  Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -909,6 +909,76 @@
       color: var(--accent);
       border-color: rgba(250, 204, 21, 0.8);
     }
+
+    /* Contact Info Bar */
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .project-card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(12, 17, 28, 0.98);
+      padding: 12px;
+      transition: 0.15s ease;
+    }
+
+    .project-card:hover {
+      border-color: rgba(250, 204, 21, 0.8);
+      box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
+    }
+
+    .project-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .project-tech {
+      font-size: 10px;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .project-desc {
+      font-size: 11px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -921,7 +991,7 @@
       <div class="nav-left">
         <div class="nav-core">
           <!-- profile photo inside yellow circle, lowered slightly -->
-          <img src="4.jpeg" alt="Jeswin profile" style="
+          <img src="images/about.jpeg" alt="Jeswin profile" style="
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -933,7 +1003,7 @@
         </div>
         <div class="nav-ident">
           <div class="nav-ident-main">Jeswin&nbsp;Morris</div>
-          <div class="nav-ident-sub">Black &amp; Yellow HUD · v3.0</div>
+          <div class="nav-ident-sub">AI Product Strategist & Automation Specialist</div>
         </div>
       </div>
 
@@ -942,6 +1012,7 @@
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
           <a href="#education">Education</a>
           <a href="#experience">Experience</a>
           <a href="#work">Work</a>
@@ -965,34 +1036,48 @@
         <div class="hero-chip">
           <span></span>
           <span>Interface: JM-HUD</span>
-          <span>Mode: Hologram</span>
+          <span>Mode: AI-Automation</span>
         </div>
         <h1 class="hero-title">
-          Web · Design · SMM<br />
-          Creative Operator
+          AI Product<br />
+          Automation & SaaS
         </h1>
         <p class="hero-subtitle">
-          B.Sc Computer Science graduate building dark, cinematic experiences for campaigns, landing pages and social media systems.
+          AI and product enthusiast with a strong interest in building AI-powered products, automation workflows, and SaaS solutions. Experienced in digital tools, product ideation, and technology research.
         </p>
 
         <div class="hero-tags">
-          <span class="hero-tag">Web Design</span>
-          <span class="hero-tag">Brand Visuals</span>
-          <span class="hero-tag">Social Media</span>
-          <span class="hero-tag">Content</span>
+          <span class="hero-tag">AI Tools & Workflows</span>
+          <span class="hero-tag">Prompt Engineering</span>
+          <span class="hero-tag">SaaS Development</span>
+          <span class="hero-tag">Automation</span>
+          <span class="hero-tag">Product Strategy</span>
         </div>
 
         <div class="hero-actions">
-          <a href="#work" class="btn-primary">Open Work Console</a>
-          <!-- WhatsApp redirect -->
-          <a
-            href="https://wa.me/917975549437"
-            class="btn-ghost"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contact Jeswin
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="https://wa.me/917975549437" class="btn-ghost" target="_blank" rel="noopener noreferrer">
+            Contact via WhatsApp
           </a>
+        </div>
+
+        <div class="contact-bar">
+          <div class="contact-item">
+            <span>📧</span>
+            <a href="mailto:jeswinmorrisfl@gmail.com">jeswinmorrisfl@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span>📱</span>
+            <span>+91 7975549437</span>
+          </div>
+          <div class="contact-item">
+            <span>🌐</span>
+            <a href="https://jeswinmorris.github.io/portfolio/" target="_blank">Portfolio</a>
+          </div>
+          <div class="contact-item">
+            <span>📍</span>
+            <span>BLR</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1013,9 +1098,9 @@
             <div class="ticker-label">Live log</div>
             <div class="ticker-track">
               <div class="ticker-list">
-                Initializing portfolio HUD... · 34 projects indexed · 6 client streams online ·
-                Web / Design / SMM stack loaded · Bangalore node active · Kerala origin verified ·
-                Poster, logo, UI and video modules ready for preview · Reading blog feed and content matrix...
+                Initializing AI automation protocols... · 6+ SaaS concepts architected · Workflow automation reducing manual processes by 60% ·
+                AI/LLM integration active · Python automation modules loaded · Product strategy matrix online · UAE node active · Kerala origin verified ·
+                Material Management System deployed · Student Attendance Platform operational...
               </div>
             </div>
           </div>
@@ -1031,53 +1116,53 @@
           <div class="meter-grid">
             <div class="meter">
               <div class="meter-header">
-                <span>Design load</span>
+                <span>AI/Automation</span>
                 <span id="meter-design-val">0%</span>
               </div>
               <div class="meter-bar-shell">
                 <div class="meter-bar-fill" id="meter-design"></div>
               </div>
               <div class="meter-readout">
-                <span>Vector / layout</span>
+                <span>Workflows/LLMs</span>
                 <span>Live</span>
               </div>
             </div>
             <div class="meter">
               <div class="meter-header">
-                <span>Web ops</span>
+                <span>Web Dev</span>
                 <span id="meter-web-val">0%</span>
               </div>
               <div class="meter-bar-shell">
                 <div class="meter-bar-fill" id="meter-web"></div>
               </div>
               <div class="meter-readout">
-                <span>HTML / CSS</span>
+                <span>HTML/CSS/JS</span>
                 <span>Active</span>
               </div>
             </div>
             <div class="meter">
               <div class="meter-header">
-                <span>Content</span>
+                <span>Product Strategy</span>
                 <span id="meter-content-val">0%</span>
               </div>
               <div class="meter-bar-shell">
                 <div class="meter-bar-fill" id="meter-content"></div>
               </div>
               <div class="meter-readout">
-                <span>Writing / scripts</span>
+                <span>Research/Planning</span>
                 <span>Streaming</span>
               </div>
             </div>
             <div class="meter">
               <div class="meter-header">
-                <span>SMM signal</span>
+                <span>Python</span>
                 <span id="meter-smm-val">0%</span>
               </div>
               <div class="meter-bar-shell">
                 <div class="meter-bar-fill" id="meter-smm"></div>
               </div>
               <div class="meter-readout">
-                <span>Campaigns</span>
+                <span>Automation/Scripts</span>
                 <span>Monitor</span>
               </div>
             </div>
@@ -1094,56 +1179,53 @@
         <div>
           <h2 class="section-title">About Jeswin</h2>
           <p class="section-sub">
-            A creative technologist blending design, storytelling and systems thinking for better brand presence.
+            Results-driven technologist specializing in AI-powered product development, automation workflows, and SaaS solutions.
           </p>
         </div>
         <div class="tag-row">
           <span class="tag">About</span>
-          <span class="tag">Personality</span>
+          <span class="tag">AI-First</span>
         </div>
       </div>
 
       <div class="about-grid">
         <div class="about-text">
           <p>
-            <strong>Hi, I’m Jeswin.</strong> I’m from Kerala, now in Bangalore, and I treat every project like a crafted artifact, not just another asset.
-            I completed my B.Sc Computer Science at RVS College of Arts and Science in 2020 and have been building and designing experiences since then.
+            <strong>AI Product Strategist & Automation Specialist.</strong> I bridge technical implementation with strategic product vision, from managing 25-person operations teams to architecting digital systems that leverage emerging AI technologies.
           </p>
           <br />
           <p>
-            I explore music and DJing, and I enjoy editing video and photos in tools like Lightroom. I also experiment with chalk carving, feather painting
-            and pencil sketches — all of which sharpen how I see composition, contrast and balance.
+            I architect end-to-end AI automation workflows using Python and no-code tools, reducing manual processes by 60%. I conduct market research and competitive analysis for SaaS products, defining monetization strategies and feature roadmaps.
           </p>
           <br />
           <p>
-            I love deep research, new tools and tracking tech trends. Staying updated daily keeps me excited and lets me translate ideas into concrete,
-            business‑ready outputs for clients.
+            With a B.Sc in Computer Science and experience spanning operations management to technical support, I bring a unique perspective to product development—understanding both the technical constraints and business requirements that drive successful AI-powered solutions.
           </p>
         </div>
 
         <div class="card-grid">
           <div class="card">
-            <div class="card-title">Web design</div>
+            <div class="card-title">AI Automation</div>
             <div class="card-body">
-              Campaign‑ready websites and landing pages with a focus on clarity and conversion.
+              Workflow design, LLM integration, and no-code automation that reduces operational overhead.
             </div>
           </div>
           <div class="card">
-            <div class="card-title">Content</div>
+            <div class="card-title">SaaS Architecture</div>
             <div class="card-body">
-              As the author of my own book, I write page, product and blog copy that sounds human.
+              End-to-end product ideation, monetization models, and feature planning for digital products.
             </div>
           </div>
           <div class="card">
-            <div class="card-title">Product design</div>
+            <div class="card-title">Full-Stack Dev</div>
             <div class="card-body">
-              Posters and creatives that help offers, menus and products stand out quickly.
+              Web systems with database integration, from concept to deployment.
             </div>
           </div>
           <div class="card">
-            <div class="card-title">Social media</div>
+            <div class="card-title">Operations</div>
             <div class="card-body">
-              From setup to consistent posts, I keep your channels in sync with your campaigns.
+              Led 25-member teams, managed P&L, and scaled production 3x during high-demand periods.
             </div>
           </div>
         </div>
@@ -1158,56 +1240,113 @@
         <div>
           <h2 class="section-title">Skill Matrix</h2>
           <p class="section-sub">
-            A quick readout of tools and strengths, tuned by client work and experiments.
+            Technical competencies and strategic capabilities tuned by real-world implementation.
           </p>
         </div>
         <div class="tag-row">
           <span class="tag">Skills</span>
+          <span class="tag">AI-First</span>
         </div>
       </div>
 
       <div class="skills-grid">
         <div class="skill-card">
           <div class="skill-header">
-            <span class="skill-name">Canva · Figma · Sketch</span>
-            <span class="skill-val">75%</span>
+            <span class="skill-name">AI Tools & Workflows</span>
+            <span class="skill-val">95%</span>
           </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:75%;"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%;"></div></div>
         </div>
         <div class="skill-card">
           <div class="skill-header">
-            <span class="skill-name">HTML · CSS</span>
-            <span class="skill-val">80%</span>
+            <span class="skill-name">Prompt Engineering</span>
+            <span class="skill-val">90%</span>
           </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
         </div>
         <div class="skill-card">
           <div class="skill-header">
-            <span class="skill-name">Content writing · Python automation</span>
+            <span class="skill-name">AI Automation & Workflow Design</span>
+            <span class="skill-val">92%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Product Strategy & Ideation</span>
+            <span class="skill-val">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">SaaS Product Development</span>
             <span class="skill-val">85%</span>
           </div>
           <div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div>
         </div>
         <div class="skill-card">
           <div class="skill-header">
-            <span class="skill-name">Social media marketing</span>
-            <span class="skill-val">60%</span>
+            <span class="skill-name">Product Research & Market Analysis</span>
+            <span class="skill-val">87%</span>
           </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:87%;"></div></div>
         </div>
         <div class="skill-card">
           <div class="skill-header">
-            <span class="skill-name">Product designing</span>
-            <span class="skill-val">70%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-header">
-            <span class="skill-name">Advertisement video</span>
+            <span class="skill-name">HTML · CSS · JavaScript</span>
             <span class="skill-val">80%</span>
           </div>
           <div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Python (Automation)</span>
+            <span class="skill-val">78%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%;"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Problem Solving & Strategic Thinking</span>
+            <span class="skill-val">90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-sub">
+            Enterprise-grade systems and AI-driven workflow concepts.
+          </p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Projects</span>
+          <span class="tag">Systems</span>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-title">Material Management System</div>
+          <div class="project-tech">HTML · CSS · MySQL · JavaScript</div>
+          <div class="project-desc">
+            Enterprise-grade asset tracking platform for educational institutions featuring real-time inventory monitoring, automated reporting, and multi-user role management. Designed to streamline physical asset tracking across departments.
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Student Attendance Platform</div>
+          <div class="project-tech">Full-Stack Development · UI/UX Design</div>
+          <div class="project-desc">
+            Dual-interface web application enabling students to mark attendance via mobile while providing teachers with approval workflows and analytics dashboard. Simplifies attendance tracking with automated reporting capabilities.
+          </div>
         </div>
       </div>
     </div>
@@ -1220,7 +1359,7 @@
         <div>
           <h2 class="section-title">Education</h2>
           <p class="section-sub">
-            CS foundations plus constant self‑learning in design, content and marketing.
+            CS foundations plus constant self-learning in AI, automation and product strategy.
           </p>
         </div>
         <div class="tag-row">
@@ -1232,25 +1371,9 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-title">B.Sc Computer Science</div>
-          <div class="timeline-meta">RVS College of Arts and Science · 2020</div>
+          <div class="timeline-meta">R.V.S College of Arts & Science · 2017 – 2020</div>
           <div class="timeline-body">
-            Completed my bachelor’s degree with focus on programming and problem solving.
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">High school</div>
-          <div class="timeline-meta">Nanjappa Municipal Boys High School · 2017</div>
-          <div class="timeline-body">
-            Finished high school and started leaning into IT and tech‑driven fields.
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">SSLC</div>
-          <div class="timeline-meta">Kongu Vellalar Matriculation School · 2015</div>
-          <div class="timeline-body">
-            Secondary school education that set up the move into computer science.
+            Completed bachelor's degree with focus on programming, problem solving, and system design. Foundation for AI and automation specialization.
           </div>
         </div>
       </div>
@@ -1264,7 +1387,7 @@
         <div>
           <h2 class="section-title">Experience</h2>
           <p class="section-sub">
-            Operations, customer support and freelance projects all feeding into practical design decisions.
+            Operations, technical support and AI product development feeding into strategic design decisions.
           </p>
         </div>
         <div class="tag-row">
@@ -1275,26 +1398,34 @@
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
+          <div class="timeline-title">AI Product & Automation Strategist</div>
+          <div class="timeline-meta">Independent Projects · 2023 – Present</div>
+          <div class="timeline-body">
+            Architect end-to-end AI automation workflows using Python and no-code tools, reducing manual processes by 60%. Conduct market research and competitive analysis for SaaS products, defining monetization strategies and feature roadmaps. Develop AI-driven productivity solutions integrating LLMs and workflow automation for business use cases.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Freelance Web Development & Digital Services</div>
+          <div class="timeline-meta">Independent · 2022 – 2023</div>
+          <div class="timeline-body">
+            Developed responsive websites and landing pages for diverse clients. Implemented digital presence strategies including SEO optimization and social media integration. Automated client workflows using Python scripts and API integrations, improving operational efficiency.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Customer Service Executive – BYJU'S Project</div>
+          <div class="timeline-meta">iEnergizer · May 2022 – April 2023</div>
+          <div class="timeline-body">
+            Resolved complex technical issues for 1000+ students on Android/iOS learning platforms. Developed troubleshooting documentation and FAQ systems, reducing ticket resolution time by 40%. Collaborated with product teams to identify and escalate critical platform bugs.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
           <div class="timeline-title">Operations Manager</div>
-          <div class="timeline-meta">AR Textile Solutions · 2020–2022</div>
+          <div class="timeline-meta">AR Textile Solutions · March 2020 – April 2022</div>
           <div class="timeline-body">
-            Managed mask production and dispatch during the COVID outbreak, coordinating teams, timelines and quality.
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Customer Service Executive</div>
-          <div class="timeline-meta">BYJU’S Think and Learn Pvt Ltd · 2022–2023</div>
-          <div class="timeline-body">
-            Worked as issue resolution specialist, handling tech support for students on an e‑learning platform.
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Freelancer</div>
-          <div class="timeline-meta">Independent · 2020–Present</div>
-          <div class="timeline-body">
-            Delivered landing pages, posters, logos and social media assets primarily for textile and restaurant clients.
+            Led 25-member production team during high-demand COVID-19 mask manufacturing initiative. Designed inventory management systems and logistics workflows, achieving 99% on-time delivery rate. Managed P&L for operations division, optimizing costs while scaling production 3x.
           </div>
         </div>
       </div>
@@ -1495,7 +1626,7 @@
             <a class="blog-title" href="https://medium.com/@jeswinmorrisos/oneplus-nord-ce-3-lite-a-budget-5g-smartphone-with-impressive-features-4a2c72b90b33" target="_blank">
               OnePlus Nord CE 3 Lite: Budget 5G with features
             </a>
-            <p>A look at a budget‑friendly 5G phone and what it offers.</p>
+            <p>A look at a budget-friendly 5G phone and what it offers.</p>
           </div>
         </article>
         <article class="blog-card">
@@ -1518,10 +1649,9 @@
   <footer id="contact">
     <div>© <span id="year"></span> Jeswin Morris. All rights reserved.</div>
     <div class="social-row">
-      <a class="social-link" href="#" target="_blank">Facebook</a>
-      <a class="social-link" href="#" target="_blank">Twitter</a>
-      <a class="social-link" href="#" target="_blank">Instagram</a>
-      <a class="social-link" href="#" target="_blank">LinkedIn</a>
+      <a class="social-link" href="mailto:jeswinmorrisfl@gmail.com">Email</a>
+      <a class="social-link" href="https://wa.me/917975549437" target="_blank">WhatsApp</a>
+      <a class="social-link" href="https://jeswinmorris.github.io/portfolio/" target="_blank">Portfolio</a>
     </div>
   </footer>
 </div>
@@ -1563,10 +1693,10 @@
     setInterval(update, 3000 + Math.random() * 2000);
   }
 
-  animateMeter("meter-design", "meter-design-val", 60, 95);
-  animateMeter("meter-web", "meter-web-val", 55, 90);
-  animateMeter("meter-content", "meter-content-val", 65, 98);
-  animateMeter("meter-smm", "meter-smm-val", 40, 85);
+  animateMeter("meter-design", "meter-design-val", 85, 98);
+  animateMeter("meter-web", "meter-web-val", 75, 90);
+  animateMeter("meter-content", "meter-content-val", 80, 95);
+  animateMeter("meter-smm", "meter-smm-val", 70, 85);
 
   // Current year
   document.getElementById("year").textContent = new Date().getFullYear();
